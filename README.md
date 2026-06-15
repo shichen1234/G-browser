@@ -97,24 +97,5 @@ G-Browser 是一款基于 Android Jetpack Compose 开发的极简、轻量、高
 
 ---
 
-## 📂 项目结构指南
-
-```text
-MyApplication/
-├── app/
-│   ├── src/
-│   │   └── main/
-│   │       ├── assets/             <-- 预置壁纸缩略图、部分静态图片和歌曲信息
-│   │       ├── java/
-│   │       │   └── com/example/myapplication/
-│   │       │       ├── MainActivity.kt  <-- 核心UI控制器、Compose各页面组件、下载管理、定位天气逻辑
-│   │       │       ├── MusicService.kt  <-- 后台音乐播放前台服务与通知栏控制
-│   │       │       └── ui/
-│   │       │           └── theme/       <-- MD3 主题色、字体与排版定制 (Color, Theme, Type)
-│   │       └── res/                <-- 各种界面布局 XML (通知栏遥控器布局)、应用图标与资源配置
-│   └── build.gradle.kts           <-- 模块级构建脚本 (开启了 R8 混淆、无用资源精简与签名配置)
-├── gradle/                         <-- Gradle 包装器目录
-├── build.gradle.kts               <-- 项目级构建配置
-├── settings.gradle.kts            <-- 模块映射定义
-└── README.md                       <-- 本说明文档
-```
+## 隐私政策
+该应用只会索取用户的位置权限来在左上角显示相应地区的天气，不会收集其他用户数据隐私，请放心使用
