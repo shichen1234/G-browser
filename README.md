@@ -74,28 +74,5 @@ G-Browser 是一款基于 Android Jetpack Compose 开发的极简、轻量、高
 
 ---
 
-## 📦 如何编译与体积优化
-
-应用中集成了庞大的 `material-icons-extended` 等大体积图标库，通过在构建配置中开启混淆和代码裁剪，APK 的包体积从 **86.7 MB** 极限精简至 **14.3 MB**（精简了近 **82%**）。
-
-### 1. 命令行一键打包 APK
-在项目的根目录下打开控制台（如 PowerShell），运行以下命令：
-```powershell
-# 编译高度混淆并自动使用调试证书签名的发布版 APK
-.\gradlew.bat assembleRelease
-```
-编译完成后，生成的 APK 文件将保存在：
-`app/build/outputs/apk/release/app-release.apk`
-*(该 APK 已经默认使用调试密钥签名，可以直接发送给他人安装测试)*
-
-### 2. 使用 Android Studio 导出正式版 APK
-1. 打开 Android Studio 项目，在顶部菜单选择 **Build** -> **Generate Signed Bundle / APK...**。
-2. 选择 **APK**，点击 **Next**。
-3. 创建新的或选择已有的签名密钥库 (.jks)，输入密码。
-4. 在 Build Variants 中选择 **release** 构建变体。
-5. 点击 **Finish**，等待构建完成后，点击右下角提示中的 **locate** 即可找到正式签名发布版 APK。
-
----
-
 ## 隐私政策
 该应用只会索取用户的位置权限来在左上角显示相应地区的天气，不会收集其他用户数据隐私，请放心使用
