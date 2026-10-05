@@ -1,7 +1,7 @@
 # 🚀 G-Browser (G浏览器) - 极简高颜值多功能个性化浏览器与音乐播放器
 
 <p align="center">
-  <img src="app/src/main/res/drawable/tubiao.jpg" width="100" height="100" style="border-radius: 20px;" alt="G-Browser Logo" />
+  <img src="res/drawable/tubiao.jpg" width="100" height="100" style="border-radius: 20px;" alt="G-Browser Logo" />
 </p>
 
 <p align="center">
