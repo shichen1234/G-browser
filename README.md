@@ -1,29 +1,38 @@
-### 8. 📥 自研高并发下载管理器
-* **OkHttp 并发下载内核**：抛弃了系统不稳定的 DownloadManager，采用 OkHttp 自研高并发下载引擎，支持大文件与音乐的极速下载。
-* **实时下载看板**：可视化下载界面，实时计算并显示下载速度（KB/s、MB/s）、当前已下载字节数/总大小、下载进度条百分比，以及下载状态（进行中、暂停、已完成、失败）。
-* **下载去重保护**：在开始下载前自动扫描本地文件，如发现同名文件已下载完成，则弹出覆盖/直接打开提示，避免重复消耗流量。
-* **自定义存储路径**：支持使用 Android 存储访问框架 (SAF / Document Tree URI) 选择自定义的**音乐下载路径**与**普通文件下载路径**，适配不同手机的存储管理习惯。
+# 🚀 G-Browser (G浏览器) - 极简高颜值多功能个性化浏览器与音乐播放器
+<p align="center">
+  <img src="app/src/main/res/drawable/tubiao.jpg" width="100" height="100" style="border-radius: 20px;" alt="G-Browser Logo" />
+</p>
+<p align="center">
+  <b>一款基于 Android Jetpack Compose 打造的极简、轻量、高可定制化现代浏览器与多媒体中心</b>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Android-green.svg" alt="Platform" />
+  <img src="https://img.shields.io/badge/Language-Kotlin%201.9-blue.svg" alt="Language" />
+  <img src="https://img.shields.io/badge/UI-Jetpack%20Compose-purple.svg" alt="Compose" />
+  <img src="https://img.shields.io/badge/Design-Material%20Design%203-orange.svg" alt="Material 3" />
+  <img src="https://img.shields.io/badge/Backend-Supabase-brightgreen.svg" alt="Supabase" />
+</p>
 ---
-### 9. 🔒 安全隐私与深度清理
-* **细粒度 Cookies 控制**：提供全局 Cookie 开关；并可展示所有已保存 Cookie 的网站域名，支持针对单个域名进行 Cookie 删除。
-* **存储深度清理**：
-  * 实时计算并展示应用的 Cache 缓存、临时文件及代码缓存的物理占用大小；
-  * 一键清理不仅删除本地缓存文件，还会彻底清空 WebView 的内部浏览缓存、WebStorage 数据库，并一键注销 Cookie 管理器中的全部登录状态，确保个人隐私绝对安全。
+## 📱 应用界面展示 (Screenshots)
+> 💡 *所有界面截图均为移动端竖屏实机效果，一目了然：*
+| 🌤️ 主页与天气动态壁纸 | 📑 多标签页卡片管理 | ☁️ 云端账号与无缝转场 | 🎵 音乐播放器与双语歌词 |
+| :---: | :---: | :---: | :---: |
+| <img src="tupian/1.jpg" width="220" alt="主页与天气动态壁纸" /> | <img src="tupian/2.jpg" width="220" alt="多标签页卡片管理" /> | <img src="tupian/3.jpg" width="220" alt="云端账号与无缝转场" /> | <img src="tupian/4.jpg" width="220" alt="音乐播放器与双语歌词" /> |
 ---
-## 🛠️ 技术栈与底层依赖
-| 领域 | 核心技术 / 库 | 说明 |
-| :--- | :--- | :--- |
-| **编程语言** | Kotlin 1.9.x | 强类型、函数式编程与协程支持 |
-| **UI 架构** | Jetpack Compose | 声明式响应式 UI，全面遵循 Material Design 3 |
-| **网络引擎** | OkHttp 3 + SmartDns | 全局共享连接池，内置 Anycast 降级容灾解析 |
-| **云端服务** | Supabase Auth & PostgreSQL | 邮箱验证码/密码鉴权，数据实时双向同步 |
-| **多媒体** | Google Media3 ExoPlayer | 后台前台音乐保活服务与循环视频壁纸解码渲染 |
-| **定位服务** | Google Play Services Location | `fusedLocationClient` 低功耗高精度位置采集 |
-| **数据序列化** | Gson | 高效轻量的 JSON 数据编解码 |
-| **持久化存储** | SharedPreferences / SAF | 轻量级用户设置与 Android 存储访问框架 |
+## 🌟 核心功能全览
+### 1. 🌐 现代智能双模浏览器
+* **多标签页卡片式管理**：提供类似于移动操作系统的卡片式标签管理（Tab Overview）界面，支持快速新建、一键全部关闭、滑动删除标签，各标签页相互隔离独立的 WebView 实例，保证多任务浏览的稳定性与隐私性。
+* **四大主流引擎极速切换**：内置 **Baidu、Bing、Google、Sogou** 四大主流搜索引擎，点击输入框左侧图标即可一键无缝切换。
+* **极速联想词建议**：基于搜索联想词接口，内置 **150ms 智能防抖（Debounce）过滤** 算法，有效减少冗余网络开销，键盘输入即刻流畅呈现联想结果。
+* **Edge 级硬件加速深色模式 (ForceDark)**：区别于简单粗暴的 CSS 反色滤镜，应用采用系统级 ForceDark 硬件加速技术，仅针对刺眼的浅色背景进行深色反转，对网页中的图片、视频色彩不做扭曲失真，夜间浏览护眼舒适。
+* **电脑版 / 手机版排版一键切换**：自由切换 User-Agent，快速在移动端视图和桌面版（Desktop Mode）网页排版之间平滑过渡。
+* **Edge 风格长按链接上下文菜单**：长按网页链接即可呼出悬浮菜单，支持“在新标签页打开”、“后台打开”、“复制链接”、“复制文本”、“直接下载”与“系统调用分享”。
 ---
-## 🛡️ 隐私政策声明
-**G-Browser 严格保护用户的隐私与数据安全**：
-1. **位置信息**：仅在获得您的明确授权后，索取精确/模糊位置权限用于在主页左上角呈现当地区域的实时天气与温度，**不会**记录、上传或追踪您的任何行踪轨迹；
-2. **浏览数据**：您的浏览历史、书签（未开启云端同步时）均保存在手机本地沙盒中。应用提供了细粒度的 Cookie 控制与一键彻底清除功能；
-3. **安全透明**：应用无任何流氓后台行为、无恶意广告追踪 SDK，请放心使用！
+### 2. ☁️ 云端账号体系与多端同步 (Supabase Auth & Database)
+* **双模极速鉴权**：
+  * **邮箱验证码免密登录 (OTP / Magic Link)**：集成自定义 SMTP 高速发信通道，输入邮箱即可秒获 6 位动态验证码；
+  * **账户密码登录**：支持传统密码注册与登录，并提供忘记密码一键重置功能；
+  * **第三方账号扩展**：架构上无缝兼容 Google、GitHub、Microsoft / Azure 快捷社交登录。
+* **云端书签秒级双向同步**：本地书签的新增、修改与删除操作自动秒级同步至 Supabase 云端 PostgreSQL 数据库；跨设备登录即可自动合并最新数据。
+* **专属资料与个性化资产**：内置丰富艺术头像库，支持系统相册本地头像自定义裁切导入，支持一键生成随机专属中文昵称，多端同步识别。
+* **智能降级容灾 DNS (SmartDns)**：针对国内复杂移动网络环境（如系统 Private DNS 阻断或抖动），底层 OkHttp 网络层内置 Cloudflare Anycast 智能降级直连解析，保障在任何弱网或 DNS 异常状态下云端登录与同步均能稳定触达。
